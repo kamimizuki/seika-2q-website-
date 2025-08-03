@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "animejs": "^4.0.2",
+    "aos": "^2.3.4",
     "just-validate": "^4.3.0",
     "swiper": "^11.2.8"
   }

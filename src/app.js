@@ -1,14 +1,7 @@
-import { animate } from 'animejs';
-
-animate(['feTurbulence', 'feDisplacementMap'], {
-  baseFrequency: 0.05,
-  scale: 15,
-  alternate: true,
-  loop: true,
-});
-
-animate('polygon', {
-  points: '64 68.64 8.574 100 63.446 67.68 64 4 64.554 67.68 119.426 100',
-  alternate: true,
-  loop: true,
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init({
+  duration: 800, // アニメーションが完了するまでの時間（ミリ秒）
+  once: false, // falseに設定すると、スクロールのたびにアニメーションが再生される
+  offset: 100, // 画面の100px手前でアニメーションを開始
 });

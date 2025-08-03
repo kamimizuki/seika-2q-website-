@@ -2,23 +2,266 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ★★★ あなたの名前に書き換えてください ★★★ -->
+    <title>あなたの名前 | Portfolio</title>
 
-    <style></style>
+    <!-- Google Fonts と AOS (アニメーションライブラリ) の読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+      /* --- 基本設定 --- */
+      :root {
+        --main-bg-color: #f8f9fa;
+        --text-color: #343a40;
+        --accent-color: #4a69bd;
+        --card-bg-color: #ffffff;
+      }
+      body {
+        font-family: 'Noto Sans JP', sans-serif;
+        margin: 0;
+        color: var(--text-color);
+        background-color: var(--main-bg-color);
+      }
+
+      /* --- ヒーローセクション (最初の全画面画像) --- */
+      .hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+        /* ★★★ あなたのヒーロー画像に書き換えてください ★★★ */
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+          url('https://placehold.co/1920x1080/34495e/ecf0f1?text=Main+Visual');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* 背景を固定する重要な設定 */
+      }
+      .hero h1 {
+        font-size: clamp(
+          2.5rem,
+          8vw,
+          4.5rem
+        ); /* 画面サイズに応じて文字サイズを調整 */
+        margin: 0;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      }
+      .hero p {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        margin-top: 0.5rem;
+        text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+      }
+      .scroll-down {
+        position: absolute;
+        bottom: 20px;
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+      }
+
+      /* --- メインコンテンツエリア --- */
+      .content-wrapper {
+        position: relative;
+        z-index: 2;
+        background-color: var(--main-bg-color);
+        padding: 5rem 1rem;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: var(--text-color);
+      }
+
+      /* --- 自己紹介セクション --- */
+      #about {
+        text-align: center;
+        line-height: 1.8;
+        margin-bottom: 6rem;
+      }
+
+      /* --- 作品ギャラリーセクション --- */
+      .works-gallery {
+        display: grid;
+        gap: 3rem; /* 作品間のスペース */
+      }
+      .work-item {
+        background-color: var(--card-bg-color);
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .work-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+      }
+      .work-item img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+      .work-info {
+        padding: 1.5rem 2rem;
+      }
+      .work-info h3 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+      }
+      .work-info p {
+        margin: 0;
+        line-height: 1.7;
+      }
+
+      /* --- フッター --- */
+      footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+    </style>
   </head>
   <body>
-    <h2 class="large grid centered square-grid text-xl">
-      <div>H</div>
-      <div>E</div>
-      <div>L</div>
-      <div>L</div>
-      <span>O</span>
-      <span>&nbsp;</span>
-      <span>W</span>
-      <span>O</span>
-      <span>R</span>
-      <span>L</span>
-      <span>D</span>
-    </h2>
-    <script src="app.js"></script>
+    <!-- ========== 1. ヒーローセクション ========== -->
+    <section class="hero">
+      <!-- ★★★ あなたの名前に書き換えてください ★★★ -->
+      <h1>Kamei's Portfolio</h1>
+      <p>Web Design & Development</p>
+      <div class="scroll-down">SCROLL</div>
+    </section>
+
+    <!-- ========== 2. メインコンテンツ ========== -->
+    <main class="content-wrapper">
+      <div class="container">
+        <!-- ========== 2-1. 自己紹介セクション ========== -->
+        <section id="about" data-aos="fade-up">
+          <h2 class="section-title">About Me</h2>
+          <!-- ★★★ あなたの自己紹介文に書き換えてください ★★★ -->
+          <p>
+            ここにあなたの自己紹介を記述します。どのようなスキルを持ち、何に情熱を注いでいるのか、簡潔にまとめましょう。
+            訪問者があなたに興味を持つような内容が理想です。
+          </p>
+        </section>
+
+        <!-- ========== 2-2. 作品紹介セクション ========== -->
+        <section id="works">
+          <h2 class="section-title">Works</h2>
+          <div class="works-gallery">
+            <!-- ★★★ 作品1 ★★★ -->
+            <div class="work-item" data-aos="fade-up">
+              <img src="asetto.png" alt="作品1の画像" />
+              <div class="work-info">
+                <h3>ゼミ同人誌作成部分</h3>
+                <p>
+                  ここに作品の簡単な説明、使用した技術、担当範囲などを記述します。
+                </p>
+              </div>
+            </div>
+
+            <!-- ★★★ 作品2 ★★★ -->
+            <div class="work-item" data-aos="fade-up">
+              <img src="小泉八雲イラスト.png" alt="作品2の画像" />
+              <div class="work-info">
+                <h3>社会実践音声</h3>
+                <p>
+                  ここに作品の簡単な説明、使用した技術、担当範囲などを記述します。
+                </p>
+              </div>
+            </div>
+
+            <!-- ★★★ 作品3 ★★★ -->
+            <div class="work-item" data-aos="fade-up">
+              <img
+                src="https://placehold.co/800x450/3498db/ffffff?text=作品3"
+                alt="作品3の画像"
+              />
+              <div class="work-info">
+                <h3>作品タイトル 3</h3>
+                <p>
+                  ここに作品の簡単な説明、使用した技術、担当範囲などを記述します。
+                </p>
+              </div>
+            </div>
+
+            <!-- ★★★ 作品4 ★★★ -->
+            <div class="work-item" data-aos="fade-up">
+              <img
+                src="https://placehold.co/800x450/e74c3c/ffffff?text=作品4"
+                alt="作品4の画像"
+              />
+              <div class="work-info">
+                <h3>作品タイトル 4</h3>
+                <p>
+                  ここに作品の簡単な説明、使用した技術、担当範囲などを記述します。
+                </p>
+              </div>
+            </div>
+
+            <!-- ★★★ 作品5 ★★★ -->
+            <div class="work-item" data-aos="fade-up">
+              <img
+                src="https://placehold.co/800x450/2ecc71/ffffff?text=作品5"
+                alt="作品5の画像"
+              />
+              <div class="work-info">
+                <h3>作品タイトル 5</h3>
+                <p>
+                  ここに作品の簡単な説明、使用した技術、担当範囲などを記述します。
+                </p>
+              </div>
+            </div>
+
+            <!-- ★★★ 作品6 ★★★ -->
+            <div class="work-item" data-aos="fade-up">
+              <img
+                src="https://placehold.co/800x450/f1c40f/ffffff?text=作品6"
+                alt="作品6の画像"
+              />
+              <div class="work-info">
+                <h3>作品タイトル 6</h3>
+                <p>
+                  ここに作品の簡単な説明、使用した技術、担当範囲などを記述します。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ========== 3. フッター ========== -->
+    <footer>
+      <!-- ★★★ あなたの名前に書き換えてください ★★★ -->
+      <p>&copy; 2025 Kamei. All Rights Reserved.</p>
+    </footer>
+
+    <script src="app.js" defer></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800, // アニメーションの時間
+        once: true, // アニメーションを1回だけ実行
+        offset: 100, // 表示領域の100px手前でアニメーションを開始
+      });
+    </script>
   </body>
 </html>
