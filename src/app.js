@@ -45,5 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // is-playingクラスを削除
     audioItem.classList.remove('is-playing');
     // アイコンを再生マークに戻す
+    playIcon.textContent = '▶';
   });
 });
