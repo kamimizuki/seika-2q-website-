@@ -20,7 +20,6 @@
       :root {
         --main-bg-color: #f8f9fa;
         --text-color: #343a40;
-        --accent-color: #4a69bd;
         --card-bg-color: #ffffff;
       }
       body {
@@ -30,7 +29,7 @@
         background-color: var(--main-bg-color);
       }
 
-      /* --- ヒーローセクション (最初の全画面画像) --- */
+      /* --- ヒーローセクション --- */
       .hero {
         height: 100vh;
         display: flex;
@@ -39,20 +38,15 @@
         align-items: center;
         color: white;
         text-align: center;
-        /* ★★★ あなたのヒーロー画像に書き換えてください ★★★ */
         background-image:
           linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-          url('https://placehold.co/1920x1080/34495e/ecf0f1?text=Main+Visual');
+          url(https://placehold.co/1920x1080/34495e/34495e);
         background-size: cover;
         background-position: center;
-        background-attachment: fixed; /* 背景を固定する重要な設定 */
+        background-attachment: fixed;
       }
       .hero h1 {
-        font-size: clamp(
-          2.5rem,
-          8vw,
-          4.5rem
-        ); /* 画面サイズに応じて文字サイズを調整 */
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
         margin: 0;
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
       }
@@ -68,7 +62,7 @@
         letter-spacing: 0.1em;
       }
 
-      /* --- メインコンテンツエリア --- */
+      /* --- コンテンツエリア --- */
       .content-wrapper {
         position: relative;
         z-index: 2;
@@ -93,10 +87,10 @@
         margin-bottom: 6rem;
       }
 
-      /* --- 作品ギャラリーセクション --- */
+      /* --- 作品ギャラリー --- */
       .works-gallery {
         display: grid;
-        gap: 3rem; /* 作品間のスペース */
+        gap: 3rem;
       }
       .work-item {
         background-color: var(--card-bg-color);
@@ -111,12 +105,32 @@
         transform: translateY(-8px);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
       }
+      .work-image-wrapper {
+        position: relative;
+        cursor: pointer;
+      }
       .work-item img {
         display: block;
         width: 100%;
         height: auto;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 16/9;
         object-fit: cover;
+      }
+      .play-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4rem;
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+      }
+      .work-image-wrapper:hover .play-icon,
+      .work-item.is-playing .play-icon {
+        opacity: 1;
       }
       .work-info {
         padding: 1.5rem 2rem;
@@ -145,7 +159,6 @@
     <section class="hero">
       <!-- ★★★ あなたの名前に書き換えてください ★★★ -->
       <h1>Kamei's Portfolio</h1>
-      <p>Web Design & Development</p>
       <div class="scroll-down">SCROLL</div>
     </section>
 
@@ -178,20 +191,24 @@
             </div>
 
             <!-- ★★★ 作品2 ★★★ -->
-            <div class="work-item" data-aos="fade-up">
-              <img src="小泉八雲イラスト.png" alt="作品2の画像" />
+            <div class="work-item audio-item" data-aos="fade-up">
+              <div class="work-image-wrapper">
+                <img src="小泉八雲イラスト.png" alt="作品２の画像" />
+                <div class="play-icon"></div>
+              </div>
               <div class="work-info">
                 <h3>社会実践音声</h3>
                 <p>
-                  ここに作品の簡単な説明、使用した技術、担当範囲などを記述します。
+                  島根県の日本庭園の由志園に来てもらい島根文化や歴史を知ってもらうことを目的とした社会実践を目的としたイベントの展示物の一つの音声を作成しました。クリックすると再生できます。
                 </p>
               </div>
+              <audio src="完了.mp3" preload="auto"></audio>
             </div>
 
             <!-- ★★★ 作品3 ★★★ -->
             <div class="work-item" data-aos="fade-up">
               <img
-                src="https://placehold.co/800x450/3498db/ffffff?text=作品3"
+                src="222T052_亀井瑞樹_PC版デザイン_1400px幅.jpg"
                 alt="作品3の画像"
               />
               <div class="work-info">
@@ -204,10 +221,7 @@
 
             <!-- ★★★ 作品4 ★★★ -->
             <div class="work-item" data-aos="fade-up">
-              <img
-                src="https://placehold.co/800x450/e74c3c/ffffff?text=作品4"
-                alt="作品4の画像"
-              />
+              <img src="しおり　完成.jpg" alt="作品4の画像" />
               <div class="work-info">
                 <h3>作品タイトル 4</h3>
                 <p>
@@ -229,20 +243,6 @@
                 </p>
               </div>
             </div>
-
-            <!-- ★★★ 作品6 ★★★ -->
-            <div class="work-item" data-aos="fade-up">
-              <img
-                src="https://placehold.co/800x450/f1c40f/ffffff?text=作品6"
-                alt="作品6の画像"
-              />
-              <div class="work-info">
-                <h3>作品タイトル 6</h3>
-                <p>
-                  ここに作品の簡単な説明、使用した技術、担当範囲などを記述します。
-                </p>
-              </div>
-            </div>
           </div>
         </section>
       </div>
@@ -254,14 +254,7 @@
       <p>&copy; 2025 Kamei. All Rights Reserved.</p>
     </footer>
 
-    <script src="app.js" defer></script>
+    <script src="app.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 800, // アニメーションの時間
-        once: true, // アニメーションを1回だけ実行
-        offset: 100, // 表示領域の100px手前でアニメーションを開始
-      });
-    </script>
   </body>
 </html>
